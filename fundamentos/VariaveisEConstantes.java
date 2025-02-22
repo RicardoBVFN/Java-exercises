@@ -3,15 +3,39 @@ public class VariaveisEConstantes {
 
     public static void main(String[] parametro){
         Scanner scanner = new Scanner(System.in);
+        String input;
+        Double c, f;
+        final double COEFICINTE = 32, FATOR = 5/9.0;
 
-        double c, f;
+        while(true){
+            System.out.print("\ndigite a temperatura em ºF a ser convertida: ");
+            input = scanner.nextLine();
 
-        System.out.println("\n digite a temperatura em ºF a ser convertida: ");
-        f = scanner.nextDouble();
+            try{
+                f = Double.parseDouble(input);
+            }
 
-        c = (f - 32.0) * (5 / 9.0);
+            catch(NumberFormatException n){
+                System.out.println("\napenas vaores reais serão aceitos");
+                continue;
+            }
 
-        System.out.println("\n a temperatura de " + f + "Fº corresponde a " + c + "ºC");
+            catch(Exception e) {
+                System.out.println("\num erro desconhecio correu aqui");
+                continue;
+            }
+
+            if(f > 0){
+                break;
+            } else{
+                System.out.println("\nvalor inválido, tente novamente");
+            }
+
+        }
+
+        c = (f - COEFICINTE) * FATOR;
+
+        System.out.printf("\na temperatura de %.1fFº corresponde a %.1fºC\n", f, c);
 
         scanner.close();
 
