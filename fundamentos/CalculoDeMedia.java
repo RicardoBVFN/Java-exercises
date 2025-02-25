@@ -84,7 +84,7 @@ public class CalculoDeMedia {
 
         media = (n1 + n2 + n3) / 3.0;
 
-        if(media < 5){
+        if(media < 5){ 
             System.out.println("\nvocê está reprovado, sinto muito");
         }
         if(media >= 5 && media < 7){
