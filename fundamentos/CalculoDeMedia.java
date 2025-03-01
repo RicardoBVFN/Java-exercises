@@ -86,14 +86,11 @@ public class CalculoDeMedia {
 
         if(media < 5){ 
             System.out.println("\nvocê está reprovado, sinto muito");
-        }
-        if(media >= 5 && media < 7){
+        }else if(media >= 5 && media < 7){
             System.out.println("\nvocê está de recuperação, boa sorte");
-        }
-        if(media >= 7 && media < 9){
+        }else if(media >= 7 && media < 9){
             System.out.println("\nvocê está aprovado, parabéns");
-        }
-        if(media >= 9){
+        }else if(media >= 9){
             System.out.println("\nvocê passou com louvor, parabéns");
         }
         
