@@ -1,14 +1,14 @@
-package orinetacaoAObjetos.jantar;
+package personalClasses;
 import java.util.Scanner;
 
 public class Verificador {
     private static final Scanner scan = new Scanner(System.in);
 
-    static String stringValida(String complemento){
+    public String stringValida(String complemento){
         String userResponse;
 
         while(true){
-            System.out.print("\ndigite " + complemento + ": ");
+            System.out.print("digite " + complemento + ": ");
             userResponse = scan.nextLine().trim();
 
             if(userResponse != "\n" && userResponse != ""){
@@ -18,11 +18,11 @@ public class Verificador {
             }
         }
     }
-    static String stringValida(){
+    public String stringValida(){
         String userResponse;
 
         while(true){
-            System.out.print("\ndigite uma string válida: ");
+            System.out.print("digite uma string válida: ");
             userResponse = scan.nextLine().trim();
 
             if(userResponse != "\n" && userResponse != ""){
@@ -33,7 +33,7 @@ public class Verificador {
         }
     }
 
-    static int intValido(String complemento){
+    public int intValido(String complemento){
         String userResponse;
         int funcReturn;
 
@@ -53,7 +53,7 @@ public class Verificador {
         }
 
     }
-    static int intValido(boolean menssage){
+    public int intValido(boolean menssage){
         String userResponse;
         int funcReturn;
 
@@ -90,7 +90,7 @@ public class Verificador {
 
     }
 
-    static double doubleValido(String complemento){
+    public double doubleValido(String complemento){
         String userResponse;
         double funcReturn;
 
@@ -110,7 +110,7 @@ public class Verificador {
         }
 
     }
-    static double doubleValido(boolean menssage){
+    public double doubleValido(boolean menssage){
         String userResponse;
         double funcReturn;
 
@@ -147,11 +147,12 @@ public class Verificador {
 
     }
 
-    static int boxNumero(String complemento, int numeroRespostas, boolean indexesStartZero, String[] textoRespostas){
+    public int boxNumero(String complemento, int numeroRespostas, boolean indexesStartZero, String[] textoRespostas){
+        Verificador verificador = new Verificador();
         int userResponse;
 
         while(true){
-            System.out.print("\ndeseja " + complemento + "\n\n");
+            System.out.print("deseja " + complemento + "\n\n");
 
             if(indexesStartZero){
                 for(int i = 0;i < numeroRespostas;i++){
@@ -162,7 +163,7 @@ public class Verificador {
                     }
                 }
 
-                userResponse = Verificador.intValido(false);
+                userResponse = verificador.intValido(false);
 
                 if(userResponse >= 0 && userResponse <= numeroRespostas -1){
                     return userResponse;
@@ -179,7 +180,7 @@ public class Verificador {
                     }
                 }
 
-                userResponse = Verificador.intValido(false);
+                userResponse = verificador.intValido(false);
 
                 if(userResponse >= 1 && userResponse <= numeroRespostas){
                     return userResponse;
@@ -188,7 +189,6 @@ public class Verificador {
                     continue;
                 }
             }
-
         }
     }
 }

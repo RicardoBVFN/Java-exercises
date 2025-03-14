@@ -1,7 +1,9 @@
 package orinetacaoAObjetos.jantar;
 import java.util.ArrayList;
+import personalClasses.Verificador;
 
 public class app {
+    private static final Verificador verificador = new Verificador();
     public static void main(String[] args) {
         ArrayList<Pessoa> pessoas = new ArrayList<>();
         ArrayList<ArrayList<Comida>> refeicoes = new ArrayList<>();
@@ -12,13 +14,13 @@ public class app {
 
             
             String respostas[] = {"sim", "não, sair do menu de cadastro"};
-            respostaCadastro = Verificador.boxNumero("cadastrar uma nova pessoa?", 2, false, respostas);
+            respostaCadastro = verificador.boxNumero("cadastrar uma nova pessoa?", 2, false, respostas);
 
             if(respostaCadastro == 1){
                 Pessoa user = new Pessoa();
 
-                user.setNome(Verificador.stringValida("um nome para a nova pessoa"));
-                user.setPeso(Verificador.doubleValido("o peso da nova pessoa em Kilogramas"));
+                user.setNome(verificador.stringValida("um nome para a nova pessoa"));
+                user.setPeso(verificador.doubleValido("o peso da nova pessoa em Kilogramas"));
                 pessoas.add(user);
             } else {
                 break;
@@ -32,13 +34,13 @@ public class app {
                 int respostaIngredientes;
                 Comida ingrediente = new Comida();
 
-                ingrediente.setNome(Verificador.stringValida("um nome para o ingrediente da sua refeição"));
-                ingrediente.setPeso(Verificador.doubleValido("o peso em Kilogramas utilizado do seu ingrediente"));
+                ingrediente.setNome(verificador.stringValida("um nome para o ingrediente da sua refeição"));
+                ingrediente.setPeso(verificador.doubleValido("o peso em Kilogramas utilizado do seu ingrediente"));
 
                 refeicoes.get(pessoas.indexOf(user)).add(ingrediente);
 
                 String[] respsotasBox = {"sim", "não, encerrar este cadastro de ingredientes"};
-                respostaIngredientes = Verificador.boxNumero("cadastrar mais algum ingrediente?", 2, false, respsotasBox);
+                respostaIngredientes = verificador.boxNumero("cadastrar mais algum ingrediente?", 2, false, respsotasBox);
 
                 if(respostaIngredientes == 2){
                     break;
@@ -49,7 +51,7 @@ public class app {
         }
 
         String[] respostasBox = {"sim", "não, encerrar programa"};
-        respostaListagem = Verificador.boxNumero("listar os usuários e suas refeições?", 2, false, respostasBox);
+        respostaListagem = verificador.boxNumero("listar os usuários e suas refeições?", 2, false, respostasBox);
 
         if(respostaListagem == 1){
             System.out.print("\n");
