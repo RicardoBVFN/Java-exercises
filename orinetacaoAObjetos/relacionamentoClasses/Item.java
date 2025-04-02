@@ -13,11 +13,11 @@ public class Item {
             throw new IllegalStateException("algo de errado ocorreu na definição do id");
         }
     }
-    public Produto getProduct() throws NullPointerException{
+    public Produto getProduct() throws IllegalStateException{
         if(product != null){
             return product;
         } else{
-            throw new NullPointerException("algo de errado ocorreu na definição padrão do produto");
+            throw new IllegalStateException("algo de errado ocorreu na definição padrão do produto");
         }
     }
     public int getAmount() throws IllegalStateException{
@@ -59,16 +59,20 @@ public class Item {
         }
     }
 
-    public boolean Equals(Item alvo){
-        if(alvo != null){
-            if(alvo == this){
+    public boolean equals(Item comparado){
+        if(comparado != null){
+            if(comparado == this){
                 return true;
-            } else if(alvo.getId() == this.id){
-                if(alvo.getAmount() == this.amount){
-                    if(alvo.getProduct())
+            } else if(comparado.getId() != null && comparado.getId().equals(this.id)){
+                if(comparado.getAmount() == this.amount){
+                    if(this.product.equals(comparado.getProduct())){
+                        return true;
+                    }
                 }
             }
         }
+
+        return false;
     }
 
     public Item(Produto product, int amount){

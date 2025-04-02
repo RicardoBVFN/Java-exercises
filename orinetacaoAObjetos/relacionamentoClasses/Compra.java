@@ -42,44 +42,54 @@ public class Compra {
             throw new IllegalArgumentException("o cliente passado como parâmetro não possui um id válido");
         }
     }
-    public void addItemCarrinho(Item newItem) throws NullPointerException, IllegalStateException{
+    public void addItemCarrinho(Item newItem) throws RuntimeException, IllegalArgumentException{
         if(newItem != null){
             try{
                 newItem.getAmount();
             }
             catch(IllegalStateException i){
-                throw new IllegalStateException("o Item passado como parâmetro não possui um amount válido");
+                throw new IllegalArgumentException("o Item passado como parâmetro não possui um amount válido");
             }
             catch(Exception e){
-                throw new IllegalStateException("um erro inesperado ocorreu");
+                throw new RuntimeException("um erro inesperado ocorreu");
             }
 
             try{
                 newItem.getId();
             }
             catch(IllegalStateException i){
-                throw new IllegalStateException("o Item passado como parâmetro não possui um id válido");
+                throw new IllegalArgumentException("o Item passado como parâmetro não possui um id válido");
             }
             catch(Exception e){
-                throw new IllegalStateException("um erro inesperado ocorreu");
+                throw new RuntimeException("um erro inesperado ocorreu");
             }
 
             try{
                 newItem.getProduct();
             }
-            catch(NullPointerException i){
-                throw new NullPointerException("o Item passado como parâmetro não possui um produto associado válido");
+            catch(IllegalStateException i){
+                throw new IllegalArgumentException("o Item passado como parâmetro não possui um produto associado válido");
             }
             catch(Exception e){
-                throw new IllegalStateException("um erro inesperado ocorreu");
+                throw new RuntimeException("um erro inesperado ocorreu");
             }
 
             this.carrinho.add(newItem);
         } else{
-            throw new NullPointerException("o parâmetro passado nesta função é nulo");
+            throw new IllegalArgumentException("o parâmetro passado nesta função é nulo");
         }
     }
     public void removeItem(Item alvo){
+        if(alvo != null){
+            for(Item item : this.carrinho){
+                if(item.equals(alvo)){
+                    this.carrinho.remove(item);
+                }
+            }
+        }
+    }
+
+    public boolean equals(){
         
     }
 

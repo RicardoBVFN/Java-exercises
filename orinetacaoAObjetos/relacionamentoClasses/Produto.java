@@ -1,5 +1,9 @@
+import java.util.UUID;
+import java.math.abs;
+
 public class Produto {
     
+    private final String id = UUID.randomUUID().toString();
     private String nome;
     private double preco;
 
@@ -15,6 +19,13 @@ public class Produto {
             return this.preco;
         } else{
             throw new IllegalStateException("o valor de 'preco' ainda não foi definido");
+        }
+    }
+    public String getId(){
+        if(this.id != null){
+            rerturn this.id;
+        } else{
+            throw new IllegalStateException("algo de errado ocorreu na definição do id dessa intância");
         }
     }
 
@@ -43,6 +54,22 @@ public class Produto {
         } else{
             throw new IllegalArgumentException("o valor passado como parâmetro é inválido");
         }
+    }
+
+    public boolean equals(Produto comparado){
+        if(comparado != null){
+            if(comparado == this){
+                return true;
+            }
+            if(comparado.getId() != null && comparado.getId().equals(this.id)){
+                if(comparado.getNome() != null && comparado.getNome().equals(this.nome)){
+                    if(Math.abs(this.preco - comparado.getPreco()) < 0.0001){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     Produto(String nome, double preco){
