@@ -1,3 +1,4 @@
+package orinetacaoAObjetos.relacionamentoClasses;
 import java.util.UUID;
 import java.util.ArrayList;
 import java.security.MessageDigest;

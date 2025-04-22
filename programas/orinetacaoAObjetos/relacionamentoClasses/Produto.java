@@ -1,5 +1,6 @@
+package orinetacaoAObjetos.relacionamentoClasses;
 import java.util.UUID;
-import java.math.abs;
+import java.math.RoundingMode;
 
 public class Produto {
     
@@ -23,7 +24,7 @@ public class Produto {
     }
     public String getId(){
         if(this.id != null){
-            rerturn this.id;
+            return this.id;
         } else{
             throw new IllegalStateException("algo de errado ocorreu na definição do id dessa intância");
         }
@@ -56,7 +57,13 @@ public class Produto {
         }
     }
 
-    public boolean equals(Produto comparado){
+    @Override
+    public boolean equals(Object obj){
+        if(obj != null){
+            if(obj instanceof Produto){
+               
+            }
+        }
         if(comparado != null){
             if(comparado == this){
                 return true;

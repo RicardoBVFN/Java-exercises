@@ -1,3 +1,4 @@
+package orinetacaoAObjetos.relacionamentoClasses;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -89,8 +90,26 @@ public class Compra {
         }
     }
 
-    public boolean equals(){
-        
+    public boolean equals(Compra comparado){
+        if(comparado != null){
+            if(comparado == this){
+                return true;
+            }
+            if(comparado.getId_compra() != null && comparado.getId_compra().equals(this.id_compra)){
+                if(comparado.getId_cliente() != null && comparado.getId_cliente().equals(this.id_cliente)){
+                    if(comparado.getCarrinho() != null && comparado.getCarrinho().length == this.carrinho.size()){
+                        for(Item elemento : comparado.getCarrinho()){
+                            if(!this.carrinho.contains(elemento)){
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 
     public Compra(Cliente client, Item item){

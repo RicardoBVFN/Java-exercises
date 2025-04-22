@@ -1,3 +1,4 @@
+package orinetacaoAObjetos.relacionamentoClasses;
 import java.util.UUID;
 
 public class Item {
@@ -59,7 +60,8 @@ public class Item {
         }
     }
 
-    public boolean equals(Item comparado){
+    @Override
+    public boolean equals(Object comparado){
         if(comparado != null){
             if(comparado == this){
                 return true;
