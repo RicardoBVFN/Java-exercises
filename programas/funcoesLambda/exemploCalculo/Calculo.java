@@ -1,4 +1,4 @@
-package funcoesLambda;
+package funcoesLambda.exemploCalculo;
 
 public interface Calculo {
 

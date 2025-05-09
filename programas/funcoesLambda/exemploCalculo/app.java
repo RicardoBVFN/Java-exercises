@@ -1,4 +1,4 @@
-package funcoesLambda;
+package funcoesLambda.exemploCalculo;
 
 public class app {
     public static void main(String[] args) {
