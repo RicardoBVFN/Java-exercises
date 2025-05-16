@@ -8,7 +8,7 @@ public class app {
         Consumer<String> printExemplo = System.out::println;
         //neste caso, consumer é uma interface funcional padrão do java
         //a nomenclatura "::" é utilisada logo antes da função a qual será passada a referencia
-        //como "printExemplo" é uma váriavel cujo tipo descende de uma interface funcional, ela requer uma função para agir como lambda e sobrescrever a função desta interface
+        //como "printExemplo" é uma váriavel cujo tipo corresponde a uma interface funcional, ela requer uma função para agir como lambda e sobrescrever a função desta interface
         //no caso, ao invez de definir uma nova função e passar ela como lambda, eu passei a referencia de uma função ja existente
         //isso é muito útil em grandes projetos com múltiplas classes 
 
