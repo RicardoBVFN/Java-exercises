@@ -1,2 +1,2 @@
 # Java-exercises
-Here i'll be posting my progres in the use of the Java programming languege.
+Here i'll be posting my progress in the use of the Java programming language.
